@@ -33,10 +33,7 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
 /* Establishing mongodb connection */
-const dbCredentials = (process.env.DB_USER && process.env.DB_PASSWORD)
-  ? `${process.env.DB_USER}:${process.env.DB_PASSWORD}@`
-  : '';
-const dbConnection = `mongodb://${dbCredentials}${process.env.DB_PATH}/${process.env.DB_NAME}`;
+const dbConnection = `mongodb+srv://graphqluser:graphqlpwd@mongo-rhzev.mongodb.net/graphql-db?retryWrites=true&w=majority`;
 
 mongoose.connect(dbConnection, { useNewUrlParser: true, useCreateIndex: true }).catch(console.error);
 
@@ -45,7 +42,7 @@ mongoose.connection.on('error', error => {
 });
 /* Defining the Apollo Server */
 const apollo = new ApolloServer({
-  playground: process.env.NODE_ENV !== 'production',
+  playground: true,
   schema: mergeSchemas({
     schemas: [
       typeDef,
