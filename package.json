@@ -27,7 +27,7 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack --watch --config webpack.dev.js",
-    "heroku-postbuild": "webpack -p --config webpack.prod.config.js --progress"
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "author": {
     "name": "Rigin Oommen",
@@ -89,5 +89,6 @@
   "bugs": {
     "url": "https://github.com/1-Platform/one-platform/issues?q=is%3Aissue+is%3Aopen+summit-graphql-demo-service"
   },
-  "generator-op-microservice-version": "0.0.0"
+  "generator-op-microservice-version": "0.0.0",
+  "heroku-run-build-script": true
 }
