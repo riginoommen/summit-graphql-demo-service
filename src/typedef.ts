@@ -1,4 +1,4 @@
-export typeDef = `type Query {
+export const typeDef = `type Query {
   # Query Definitions
   list: [SummitGraphqlDemoType]
   get(id: String!): SummitGraphqlDemoType

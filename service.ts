@@ -8,7 +8,7 @@ import { buildFederatedSchema } from '@apollo/federation';
 const { ApolloLogExtension } = require('apollo-log');
 import mongoose from 'mongoose';
 
-import gqlSchema from './src/typedef.graphql';
+import { typeDef } from './src/typedef';
 import { SummitGraphqlDemoResolver as resolver } from './src/resolver';
 import cookieParser = require('cookie-parser');
 
@@ -43,14 +43,17 @@ mongoose.connect(dbConnection, { useNewUrlParser: true, useCreateIndex: true }).
 mongoose.connection.on('error', error => {
   console.error(error);
 });
-
 /* Defining the Apollo Server */
 const apollo = new ApolloServer({
   playground: process.env.NODE_ENV !== 'production',
-  schema: buildFederatedSchema( [ {
-    typeDefs: gqlSchema,
-    resolvers: resolver
-  } ] ),
+  schema: mergeSchemas({
+    schemas: [
+      typeDef,
+    ],
+    resolvers: [
+      resolver,
+    ]
+  }),
   subscriptions: {
     path: '/subscriptions',
   },
