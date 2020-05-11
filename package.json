@@ -24,8 +24,8 @@
   ],
   "scripts": {
     "test": "jest --forceExit",
-    "build:dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "build:dev": "./node_modules/.bin/webpack --config webpack.dev.js",
+    "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "start": "./node_modules/.bin/webpack --watch --config webpack.dev.js"
   },
   "author": {
