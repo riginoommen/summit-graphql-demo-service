@@ -27,7 +27,7 @@
     "build:dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack --watch --config webpack.dev.js",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "heroku-postbuild": "webpack -p --config webpack.prod.config.js --progress"
   },
   "author": {
     "name": "Rigin Oommen",
