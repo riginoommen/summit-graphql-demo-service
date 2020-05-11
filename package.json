@@ -26,7 +26,7 @@
     "test": "jest --forceExit",
     "build:dev": "webpack --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "start": "webpack --watch --config webpack.dev.js",
+    "start": "node ./dist/bundle.js",
     "heroku-postbuild": "echo Skip build on Heroku"
   },
   "author": {
