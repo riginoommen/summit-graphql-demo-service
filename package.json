@@ -24,9 +24,10 @@
   ],
   "scripts": {
     "test": "jest --forceExit",
-    "build:dev": "./node_modules/.bin/webpack --config webpack.dev.js",
-    "build": "./node_modules/.bin/webpack --config webpack.prod.js",
-    "start": "./node_modules/.bin/webpack --watch --config webpack.dev.js"
+    "build:dev": "webpack --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "start": "webpack --watch --config webpack.dev.js",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "author": {
     "name": "Rigin Oommen",
